@@ -103,17 +103,44 @@ class _HomePageState extends State<HomePage> {
                       Navigator.pop(context);
                     },
                   ),
-                  ListTile(
-                    leading: const Icon(Icons.note_add_outlined),
-                    title: const Text('ใบรับสินค้าชั่วคราว'),
-                    // selected: _selectedIndex == 0,
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const ReceivePage(
-                                  title: 'ใบรับสินค้าชั่วคราว')));
-                    },
+                  ExpansionTile(
+                    title: const Text("ใบรับสินค้าชั่วคราว(AJ)"),
+                    leading: const Icon(Icons.note_add_outlined), //add icon
+                    childrenPadding:
+                        const EdgeInsets.only(left: 5), //children padding
+                    children: [
+                      ListTile(
+                        leading: const Icon(Icons.arrow_right),
+                        title: const Text("001-Child Category 1"),
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const ReceivePage(
+                                        title: '001-Child Category 1',
+                                        refType: "001",
+                                        refId: "001",
+                                      )));
+                        },
+                      ),
+
+                      ListTile(
+                        leading: const Icon(Icons.arrow_right),
+                        title: const Text("002-Child Category 2"),
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const ReceivePage(
+                                        title: '002-Child Category 2',
+                                        refType: "AJ",
+                                        refId: "002",
+                                      )));
+                        },
+                      ),
+
+                      //more child menu
+                    ],
                   ),
                   ExpansionTile(
                     title: const Text("ใบรับสินค้า(FR)"),

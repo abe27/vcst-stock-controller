@@ -5,10 +5,11 @@ import 'package:flutter/material.dart';
 import 'FormInvoicePage.dart';
 
 class ReceivePage extends StatefulWidget {
-  const ReceivePage({super.key, required this.title, this.refType});
+  const ReceivePage({super.key, required this.title, this.refType, this.refId});
 
   final String title;
   final String? refType;
+  final String? refId;
 
   @override
   State<ReceivePage> createState() => _RecevePage();
@@ -21,7 +22,8 @@ class _RecevePage extends State<ReceivePage> {
 
   @override
   void initState() {
-    dateinput.text = "";
+    DateTime date = DateTime.now();
+    dateinput.text = date.toString().substring(0, 10);
     super.initState();
   }
 
